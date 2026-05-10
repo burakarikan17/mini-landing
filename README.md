@@ -1,26 +1,63 @@
 # Staj Landing Page
 
 PDF gereksinimlerine uygun olarak geliştirilmiş tek sayfalık ürün tanıtım uygulaması.
-Proje React + TypeScript + SCSS ile yazılmıştır; harici UI component kütüphanesi kullanılmamıştır.
+React + TypeScript + SCSS ile yazılmıştır; harici UI bileşen kütüphanesi kullanılmamıştır.
+
+🔗 **[Canlı Demo](https://mini-landing-burakarikan.netlify.app/)** · **[GitHub Repo](https://github.com/burakarikan17/mini-landing)**
+
+---
 
 ## Gereksinim Kapsamı
 
 - Tek sayfa landing bölümleri: Hero, Özellikler, Fiyat Kartları, SSS (Accordion), İletişim Formu
 - Yeniden kullanılabilir UI bileşenleri: Button, Input, Card, Modal, Accordion
-- Mobil öncelikli responsive tasarım (3 breakpoint): `<=640`, `641-1024`, `>=1025`
-- Light/Dark tema geçişi (CSS variables + toggle)
+- Mobil öncelikli responsive tasarım (3 breakpoint): `≤640px`, `641–1024px`, `≥1025px`
+- Light/Dark tema geçişi (CSS custom properties + toggle)
 - Form doğrulama: boş alan kontrolü + e-posta format kontrolü (yalın TS/JS)
 - Temel erişilebilirlik: semantic HTML, klavye erişimi, ARIA bağlantıları
 
+---
+
 ## Teknoloji Yığını
 
-- React + TypeScript
-- Vite
-- SCSS (Sass)
-- ESLint + Prettier
-- Vitest + React Testing Library
+| Araç                           | Kullanım                                |
+| ------------------------------ | --------------------------------------- |
+| React 19 + TypeScript          | UI katmanı ve tip güvenliği             |
+| Vite                           | Build ve geliştirme sunucusu            |
+| SCSS (Sass)                    | BEM metodolojisi, mixins, CSS variables |
+| ESLint + Prettier              | Kod kalitesi ve format                  |
+| Vitest + React Testing Library | Birim ve bileşen testleri               |
+
+---
 
 ## Proje Yapısı
+
+```
+src/
+├── components/          # Yeniden kullanılabilir UI bileşenleri
+│   ├── Accordion/
+│   ├── Button/
+│   ├── Card/
+│   ├── Input/
+│   ├── Modal/
+│   └── ThemeToggle/
+├── sections/            # Sayfa bölümleri
+│   ├── Hero.tsx
+│   ├── Features.tsx
+│   ├── Pricing.tsx
+│   ├── FAQ.tsx
+│   └── Contact.tsx
+├── hooks/               # useTheme
+├── utils/               # Form validasyon fonksiyonları
+├── data/                # Statik içerik (faq, features, pricing)
+└── styles/              # Global SCSS (_variables, _mixins, main)
+tests/                   # Vitest test dosyaları
+docs/
+├── adr-01.md            # Teknoloji seçim kararı
+└── accessibility.md     # Erişilebilirlik notları
+```
+
+---
 
 ## Kurulum
 
@@ -31,37 +68,44 @@ npm run dev
 
 ## Scriptler
 
-- `npm run dev`: geliştirme sunucusu
-- `npm run lint`: lint kontrolü
-- `npm run test`: birim/component testleri
-- `npm run build`: production build
-- `npm run preview`: build önizleme
+```bash
+npm run dev       # Geliştirme sunucusu
+npm run build     # Production build
+npm run preview   # Build önizleme
+npm run lint      # ESLint kontrolü
+npm run test      # Vitest testleri
+```
+
+---
 
 ## CI (GitHub Actions)
 
-`.github/workflows/ci.yml` dosyası her push ve PR için şu adımları çalıştırır:
+Her push ve PR'da otomatik olarak çalışır:
 
 1. `npm install`
 2. `npm run lint`
 3. `npm run test`
 4. `npm run build`
 
-## Erişilebilirlik ve Performans Notları
+---
 
-- Accordion ve modal bileşenlerinde klavye ile kullanım desteklenir.
-- Form alanlarında `label`, `aria-invalid`, `aria-describedby` bağlantıları kullanılır.
-- Tema değişimi `data-theme` attribute'u üzerinden CSS seviyesinde uygulanır.
-- Kod bölme (lazy loading) ile section bazlı bundle parçası üretilir.
+## Erişilebilirlik ve Performans
 
-## Teslimat Linkleri (Manuel Doldurulacak)
+- Modal ve Accordion bileşenlerinde tam klavye navigasyonu ve focus trap desteği
+- Form alanlarında `label`, `aria-invalid`, `aria-describedby` bağlantıları
+- Tema değişimi `data-theme` attribute üzerinden CSS seviyesinde uygulanır
+- `React.lazy` + `Suspense` ile section bazlı code splitting
+- `prefers-reduced-motion` media query desteği
 
-- Canlı demo: `[DEMO_URL_BURAYA]`
-- Repository: `[REPO_URL_BURAYA]`
-- Lighthouse ekran görüntüsü dosyası: `[LIGHTHOUSE_SCREENSHOT_PATH]`
+### Lighthouse
+
+![Lighthouse raporu](https://github.com/user-attachments/assets/98e798b1-518a-4270-a324-965cdf2f820b)
+
+---
 
 ## Ek Dokümanlar
 
-- `CHANGELOG.md`
-- `DAILY_LOG.md`
-- `docs/adr-01.md`
-- `docs/accessibility.md`
+- [`CHANGELOG.md`](./CHANGELOG.md) — Sürüm geçmişi
+- [`DAILY_LOG.md`](./DAILY_LOG.md) — Günlük ilerleme notları
+- [`docs/adr-01.md`](./docs/adr-01.md) — Teknoloji seçim kararı (ADR)
+- [`docs/accessibility.md`](./docs/accessibility.md) — Erişilebilirlik notları
