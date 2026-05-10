@@ -97,11 +97,12 @@ Her push ve PR'da otomatik olarak çalışır:
 - `React.lazy` + `Suspense` ile section bazlı code splitting
 - `prefers-reduced-motion` media query desteği
 
+
 ### Lighthouse
 
 ![Lighthouse raporu](https://github.com/user-attachments/assets/98e798b1-518a-4270-a324-965cdf2f820b)
 
----
+
 
 ## Ek Dokümanlar
 
