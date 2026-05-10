@@ -1,10 +1,5 @@
 # ADR-01: React + TypeScript + SCSS Teknoloji Seçimi
 
-| Alan | Değer |
-|------|-------|
-| **Durum** | Kabul Edildi |
-| **Tarih** | 2026-05-09 |
-| **Karar Vericiler** | Proje Ekibi |
 
 ---
 
