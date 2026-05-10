@@ -5,6 +5,29 @@ Format [Conventional Commits](https://www.conventionalcommits.org/tr/) spesifika
 
 ---
 
+## [1.0.0] — 2026-05-10
+
+### feat: Modal entegrasyonu ve performans iyileştirmeleri
+
+- **feat(sections):** `Hero` — CTA butonuna Demo Talebi modalı entegre edildi
+- **perf(sections):** `Modal` lazy load ile kritik yoldan çıkarıldı
+- **perf(index):** Google Fonts weight'leri azaltıldı (400;500)
+- **fix(cleanup):** Kullanılmayan şablon dosyaları silindi (App.css, index.css, react.svg, vite.svg)
+- **fix(repo):** Ödev PDF dosyası repo'dan kaldırıldı
+
+---
+
+## [0.4.0] — 2026-05-10
+
+### feat: Test kapsamı genişletildi
+
+- **feat(tests):** `accordion.test.tsx` — 4 test: render, varsayılan durum, tıklama, defaultOpen
+- **feat(tests):** `contact.test.tsx` — 4 test: form alanları, boş submit, geçersiz email, geçerli input
+- **fix(tsconfig):** `tests/` klasörü include'a eklendi, `@testing-library/jest-dom` tipi eklendi
+- **chore(deps):** `@testing-library/user-event` devDependencies'e eklendi
+
+---
+
 ## [0.3.0] — 2026-05-09
 
 ### feat: Tema ve form mantıkları
@@ -46,7 +69,7 @@ Format [Conventional Commits](https://www.conventionalcommits.org/tr/) spesifika
 
 ---
 
-## [0.0.0] — 2026-05-09
+## [0.0.0] — 2026-05-08
 
 ### chore: Proje başlangıcı
 

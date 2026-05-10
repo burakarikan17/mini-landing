@@ -100,8 +100,9 @@ Her push ve PR'da otomatik olarak çalışır:
 
 ### Lighthouse
 
-![Lighthouse raporu](https://github.com/user-attachments/assets/98e798b1-518a-4270-a324-965cdf2f820b)
+![Lighthouse raporu](https://github.com/user-attachments/assets/0ff41495-bbff-4935-880c-52cf075bad8a)
 
+> Production build (`npm run preview`) üzerinde ölçülmüştür — Performance 93, Accessibility 96, Best Practices 100, SEO 100.
 
 
 ## Ek Dokümanlar
