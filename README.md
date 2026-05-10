@@ -101,7 +101,7 @@ Her push ve PR'da otomatik olarak çalışır:
 
 ![Lighthouse raporu](https://github.com/user-attachments/assets/98e798b1-518a-4270-a324-965cdf2f820b)
 
----
+
 
 ## Ek Dokümanlar
 

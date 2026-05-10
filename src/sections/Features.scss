@@ -1,0 +1,108 @@
+@use '../styles/mixins' as *;
+
+.features {
+  padding: var(--space-16) var(--space-4);
+  background-color: var(--color-bg-alt);
+
+  @include tablet {
+    padding: var(--space-12) var(--space-6);
+  }
+
+  @include mobile {
+    padding: var(--space-10) var(--space-6);
+  }
+
+  &__container {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+    @include flex-column(var(--space-3), center);
+
+    @include mobile {
+      margin-bottom: var(--space-8);
+    }
+  }
+
+  &__label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-primary);
+  }
+
+  &__title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--color-text);
+
+    @include tablet {
+      font-size: var(--font-size-2xl);
+    }
+
+    @include mobile {
+      font-size: var(--font-size-xl);
+    }
+  }
+
+  &__subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 560px;
+
+    @include mobile {
+      font-size: var(--font-size-base);
+    }
+  }
+
+  &__grid {
+    @include grid(3, var(--space-6));
+
+    @include tablet {
+      @include grid(2, var(--space-5));
+    }
+
+    @include mobile {
+      @include grid(1, var(--space-4));
+    }
+  }
+
+  &__card {
+    text-align: center;
+    padding: var(--space-6);
+
+    .card__body {
+      @include flex-column(var(--space-3), center);
+    }
+  }
+
+  &__icon {
+    @include flex-center;
+    width: 56px;
+    height: 56px;
+    font-size: 1.75rem;
+    background: var(--color-primary-light);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-1);
+  }
+
+  &__card-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  &__card-desc {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+
+    @include mobile {
+      font-size: var(--font-size-sm);
+    }
+  }
+}

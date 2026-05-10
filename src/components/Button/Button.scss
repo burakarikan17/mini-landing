@@ -1,0 +1,110 @@
+@use '../../styles/mixins' as *;
+
+.btn {
+  @include flex-center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+
+  &:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &--sm {
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-sm);
+  }
+
+  &--md {
+    padding: var(--space-2) var(--space-5);
+    font-size: var(--font-size-base);
+  }
+
+  &--lg {
+    padding: var(--space-3) var(--space-8);
+    font-size: var(--font-size-lg);
+    border-radius: var(--radius-lg);
+  }
+
+  &--primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-primary-hover);
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+    }
+  }
+
+  &--secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-primary-light);
+      border-color: var(--color-primary-hover);
+    }
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+
+  &--loading {
+    position: relative;
+    pointer-events: none;
+  }
+
+  &__icon {
+    @include flex-center;
+    font-size: 1.15em;
+    flex-shrink: 0;
+  }
+
+  &__label {
+    @include flex-center;
+  }
+
+  &__spinner {
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: var(--radius-full);
+    animation: btn-spin 0.6s linear infinite;
+    flex-shrink: 0;
+  }
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
