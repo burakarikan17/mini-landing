@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import Button from '../components/Button/Button';
-import Modal from '../components/Modal/Modal';
 import './Hero.scss';
+
+const Modal = lazy(() => import('../components/Modal/Modal'));
 
 /**
  * Renders the hero section with a demo request modal.
@@ -50,21 +51,23 @@ const Hero = () => {
         </div>
       </div>
 
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="Demo Talebi"
-        footer={
-          <Button variant="primary" onClick={() => setIsModalOpen(false)}>
-            Tamam
-          </Button>
-        }
-      >
-        <p>Demo talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz.</p>
-        <p style={{ marginTop: '0.75rem', color: 'var(--color-text-secondary)' }}>
-          Ortalama yanıt süremiz 24 saattir.
-        </p>
-      </Modal>
+      <Suspense fallback={null}>
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          title="Demo Talebi"
+          footer={
+            <Button variant="primary" onClick={() => setIsModalOpen(false)}>
+              Tamam
+            </Button>
+          }
+        >
+          <p>Demo talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz.</p>
+          <p style={{ marginTop: '0.75rem', color: 'var(--color-text-secondary)' }}>
+            Ortalama yanıt süremiz 24 saattir.
+          </p>
+        </Modal>
+      </Suspense>
     </section>
   );
 };
