@@ -1,0 +1,161 @@
+@use '../styles/mixins' as *;
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-16) var(--space-4);
+  text-align: center;
+
+  @include tablet {
+    padding: var(--space-12) var(--space-6);
+  }
+
+  @include mobile {
+    padding: var(--space-10) var(--space-6);
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+
+    &--1 {
+      width: 500px;
+      height: 500px;
+      background: var(--color-primary);
+      top: -15%;
+      left: -10%;
+      animation: hero-float 8s ease-in-out infinite;
+    }
+
+    &--2 {
+      width: 400px;
+      height: 400px;
+      background: var(--color-secondary);
+      bottom: -10%;
+      right: -8%;
+      animation: hero-float 10s ease-in-out infinite reverse;
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    @include flex-column(var(--space-6), center);
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-4);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-full);
+    animation: hero-fade-up 0.6s ease both;
+  }
+
+  &__title {
+    font-size: var(--font-size-hero);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    color: var(--color-text);
+    animation: hero-fade-up 0.6s ease 0.1s both;
+
+    @include tablet {
+      font-size: var(--font-size-3xl);
+    }
+
+    @include mobile {
+      font-size: var(--font-size-2xl);
+      letter-spacing: -0.5px;
+    }
+  }
+
+  &__highlight {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    max-width: 600px;
+    animation: hero-fade-up 0.6s ease 0.2s both;
+
+    @include mobile {
+      font-size: var(--font-size-base);
+    }
+  }
+
+  &__actions {
+    @include flex(row, center, center, wrap, var(--space-4));
+    margin-top: var(--space-2);
+    animation: hero-fade-up 0.6s ease 0.3s both;
+
+    @include mobile {
+      flex-direction: column;
+      width: 100%;
+
+      .btn { width: 100%; }
+    }
+  }
+
+  &__stats {
+    @include flex(row, center, center, wrap, var(--space-10));
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+    animation: hero-fade-up 0.6s ease 0.4s both;
+
+    @include mobile {
+      gap: var(--space-6);
+    }
+  }
+
+  &__stat {
+    @include flex-column(var(--space-1), center);
+  }
+
+  &__stat-value {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+
+    @include mobile {
+      font-size: var(--font-size-xl);
+    }
+  }
+
+  &__stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -20px) scale(1.05); }
+}
+
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
