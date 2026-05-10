@@ -1,0 +1,85 @@
+@use '../styles/mixins' as *;
+
+.pricing {
+  padding: var(--space-16) var(--space-4);
+  @include tablet { padding: var(--space-12) var(--space-6); }
+  @include mobile { padding: var(--space-10) var(--space-6); }
+
+  &__container { max-width: 1120px; margin: 0 auto; }
+
+  &__header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+    @include flex-column(var(--space-3), center);
+    @include mobile { margin-bottom: var(--space-8); }
+  }
+
+  &__label {
+    font-size: var(--font-size-sm); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 1.5px; color: var(--color-primary);
+  }
+
+  &__title {
+    font-size: var(--font-size-3xl); font-weight: 700; color: var(--color-text);
+    @include tablet { font-size: var(--font-size-2xl); }
+    @include mobile { font-size: var(--font-size-xl); }
+  }
+
+  &__subtitle {
+    font-size: var(--font-size-lg); color: var(--color-text-secondary); max-width: 520px;
+    @include mobile { font-size: var(--font-size-base); }
+  }
+
+  &__grid {
+    @include grid(3, var(--space-6));
+    align-items: stretch;
+    @include tablet { @include grid(1, var(--space-6)); max-width: 480px; margin: 0 auto; }
+    @include mobile { @include grid(1, var(--space-4)); }
+  }
+
+  &__card {
+    @include flex-column(var(--space-6));
+    position: relative; padding: var(--space-8);
+    background: var(--color-card-bg); border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+    &:hover { box-shadow: var(--shadow-lg); }
+    @include mobile { padding: var(--space-6); }
+
+    &--popular {
+      border-color: var(--color-primary); box-shadow: var(--shadow-lg); transform: scale(1.03);
+      @include tablet-down { transform: none; }
+      &:hover { transform: scale(1.05); @include tablet-down { transform: translateY(-4px); } }
+    }
+  }
+
+  &__badge {
+    position: absolute; top: calc(var(--space-4) * -1); left: 50%; transform: translateX(-50%);
+    padding: var(--space-1) var(--space-4); font-size: var(--font-size-sm); font-weight: 600;
+    color: #fff; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: var(--radius-full); white-space: nowrap;
+  }
+
+  &__card-header { @include flex-column(var(--space-2)); }
+  &__plan-name { font-size: var(--font-size-xl); font-weight: 600; color: var(--color-text); }
+  &__plan-desc { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+
+  &__price-block {
+    @include flex(row, flex-start, baseline, nowrap, var(--space-1));
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);
+  }
+
+  &__price { font-size: var(--font-size-4xl); font-weight: 800; color: var(--color-text); line-height: 1; }
+  &__period { font-size: var(--font-size-base); color: var(--color-text-muted); }
+
+  &__features { @include flex-column(var(--space-3)); flex: 1; }
+
+  &__feature {
+    @include flex(row, flex-start, center, nowrap, var(--space-2));
+    font-size: var(--font-size-base); color: var(--color-text-secondary);
+    @include mobile { font-size: var(--font-size-sm); }
+  }
+
+  &__check { flex-shrink: 0; color: var(--color-success); }
+}
