@@ -55,9 +55,10 @@ npm run dev
 
 ## Teslimat Linkleri (Manuel Doldurulacak)
 
-- Canlı demo: `[DEMO_URL_BURAYA]`
-- Repository: `[REPO_URL_BURAYA]`
-- Lighthouse ekran görüntüsü dosyası: `[LIGHTHOUSE_SCREENSHOT_PATH]`
+- Canlı demo: `[https://mini-landing-burakarikan.netlify.app/]`
+- Repository: `[https://github.com/burakarikan17/mini-landing]]`
+- Lighthouse ekran görüntüsü dosyası: `[<img width="1131" height="625" alt="image" src="https://github.com/user-attachments/assets/98e798b1-518a-4270-a324-965cdf2f820b" />
+]`
 
 ## Ek Dokümanlar
 
